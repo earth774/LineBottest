@@ -1,7 +1,10 @@
 <?php
 require_once './vendor/autoload.php';
 // Namespace
+use \LINE\LINEBot;
+use \LINE\LINEBot\HTTPClient\CurlHTTPClient;
 use \LINE\LINEBot\MessageBuilder\TextMessageBuilder;
+
 $channel_token = 'WyUPHjT6UfUUuRkCVDtXLWsiQgWzrJ1CJcHumTTDc8GyvMwPYNgVuJjO5htMtKd04XjAMycLv7fCVHM4QIFufSRqxHvasVw2Rry7RLWkIZdYz/qRSRDW8PBixHYOKr5FDxTILJwsLSvcfmqGRzx3KwdB04t89/1O/w1cDnyilFU=';
 $channel_secret = '23305d52c27a46d4ed5c36b63fdc602f';
 // Get message from Line API
