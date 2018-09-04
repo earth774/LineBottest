@@ -20,6 +20,20 @@ if (!is_null($events['events'])) {
             $httpClient = new CurlHTTPClient($channel_token);
             $bot = new LINEBot($httpClient, array('channelSecret' => $channel_secret));
             switch ($event['message']['type']) {
+                case 'text':
+                    // Get replyToken
+                    // Reply message
+                    $respMessage = 'Hello, your message is ' . $event['message']['text'];
+                    break;
+                case 'image':
+                    $messageID = $event['message']['id'];
+                    $respMessage = 'Hello, your image ID is ' . $messageID;
+                    break;
+                case 'sticker':
+                    $messageID = $event['message']['packageId'];
+                    // Reply message
+                    $respMessage = 'Hello, your Sticker Package ID is ' . $messageID;
+                    break;
                 case 'video':
                     $messageID = $event['message']['id'];
                     // Create video file on server.
@@ -32,11 +46,10 @@ if (!is_null($events['events'])) {
                     $respMessage = 'Hello, your video ID is ' . $messageID;
                     break;
                 default:
-// Reply message
-                    $respMessage = 'Please send video only';
+                    $respMessage = 'Please send image only';
                     break;
             }
-            $httpClient = new CurlHTTPClient($channel_token);
+            // $httpClient = new CurlHTTPClient($channel_token);
 
             $textMessageBuilder = new TextMessageBuilder($respMessage);
             $response = $bot->replyMessage($replyToken, $textMessageBuilder);
