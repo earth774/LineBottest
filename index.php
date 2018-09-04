@@ -2,7 +2,7 @@
 require_once './vendor/autoload.php';
 // Namespace
 use \LINE\LINEBot\MessageBuilder\TextMessageBuilder;
-$channel_token = '0qOVn59vvLLr7lsoCh1lGgcoLf3UdxpdRRyqJbdv/vBZWLTB/weiPZ9VnOO9nssv4XjAMycLv7fCVHM4QIFufSRqxHvasVw2Rry7RLWkIZc8naoH7CfMXXbRtVxCcYkrCKuYC2NflRHcOLEKs8AOmQdB04t89/1O/w1cDnyilFU=';
+$channel_token = 'WyUPHjT6UfUUuRkCVDtXLWsiQgWzrJ1CJcHumTTDc8GyvMwPYNgVuJjO5htMtKd04XjAMycLv7fCVHM4QIFufSRqxHvasVw2Rry7RLWkIZdYz/qRSRDW8PBixHYOKr5FDxTILJwsLSvcfmqGRzx3KwdB04t89/1O/w1cDnyilFU=';
 $channel_secret = '23305d52c27a46d4ed5c36b63fdc602f';
 // Get message from Line API
 $content = file_get_contents('php://input');
@@ -33,6 +33,7 @@ if (!is_null($events['events'])) {
                     $respMessage = 'Please send video only';
                     break;
             }
+            $httpClient = new CurlHTTPClient($channel_token);
 
             $textMessageBuilder = new TextMessageBuilder($respMessage);
             $response = $bot->replyMessage($replyToken, $textMessageBuilder);
