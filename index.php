@@ -16,12 +16,8 @@ if (!is_null($events['events'])) {
         // Get replyToken
         $replyToken = $event['replyToken'];
         // Image
-        $originalContentUrl =
-            'https://cdn.shopify.com/s/files/1/1217/6360/products/Shinkansen_Tokaido_ShinFuji_001_1e44e709-ea47-41ac-91e4-
-  89b2b5eb193a_grande.jpg?v=1489641827';
-        $previewImageUrl =
-            'https://cdn.shopify.com/s/files/1/1217/6360/products/Shinkansen_Tokaido_ShinFuji_001_1e44e709-ea47-41ac-91e4-
-89b2b5eb193a_grande.jpg?v=1489641827';
+        $originalContentUrl = 'https://cdn.shopify.com/s/files/1/1217/6360/products/Shinkansen_Tokaido_ShinFuji_001_1e44e709-ea47-41ac-91e4-89b2b5eb193a_grande.jpg?v=1489641827';
+        $previewImageUrl = 'https://cdn.shopify.com/s/files/1/1217/6360/products/Shinkansen_Tokaido_ShinFuji_001_1e44e709-ea47-41ac-91e4-89b2b5eb193a_grande.jpg?v=1489641827';
         $httpClient = new CurlHTTPClient($channel_token);
         $bot = new LINEBot($httpClient, array('channelSecret' => $channel_secret));
         $textMessageBuilder = new ImageMessageBuilder($originalContentUrl, $previewImageUrl);
